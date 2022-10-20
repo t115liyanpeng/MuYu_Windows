@@ -1,0 +1,178 @@
+﻿<Application x:Class="MuYu.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:MuYu"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <Style x:Key="BtnStyle" TargetType="{x:Type Button}">
+            <Setter Property="Background">
+                <Setter.Value>
+                    <ImageBrush ImageSource="pack://application:,,,/MuYu;component/imgs/muyu.png" Stretch="Uniform"></ImageBrush>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="RenderTransformOrigin" Value="0.5,0.5"></Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid x:Name="PART_root" Width="{TemplateBinding Width}"
+                               Height="{TemplateBinding Height}"
+                               Background="{TemplateBinding Background}">
+
+
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsPressed" Value="True">
+                    <Trigger.EnterActions>
+                        <BeginStoryboard>
+                            <Storyboard FillBehavior="Stop"  Duration="0:0:0.1">
+                                <DoubleAnimation From="1" To="1.2" Storyboard.TargetProperty="(Button.RenderTransform).(ScaleTransform.ScaleX)"></DoubleAnimation>
+                                <DoubleAnimation From="1" To="1.2" Storyboard.TargetProperty="(Button.RenderTransform).(ScaleTransform.ScaleY)"></DoubleAnimation>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </Trigger.EnterActions>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="CloseBtn" TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="Transparent">
+
+            </Setter>
+            <Setter Property="RenderTransformOrigin" Value="0.5,0.5"></Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid x:Name="PART_root" Width="{TemplateBinding Width}"
+                              Height="{TemplateBinding Height}"
+                              Background="{TemplateBinding Background}">
+                            <Viewbox Stretch="Fill">
+                                <Path x:Name="path" Data="M512 1024C229.248 1024 0 794.752 0 512S229.248 0 512 0s512 229.248 512 512-229.248 512-512 512z m0-572.330667L300.629333 240.213333a42.538667 42.538667 0 0 0-60.16 0.213334 42.410667 42.410667 0 0 0-0.213333 60.16L451.669333 512 240.213333 723.370667a42.538667 42.538667 0 0 0 0.213334 60.16 42.410667 42.410667 0 0 0 60.16 0.213333L512 572.330667l211.370667 211.413333a42.538667 42.538667 0 0 0 60.16-0.213333 42.410667 42.410667 0 0 0 0.213333-60.16L572.330667 512l211.413333-211.370667a42.538667 42.538667 0 0 0-0.213333-60.16 42.410667 42.410667 0 0 0-60.16-0.213333L512 451.669333z"
+                                  Fill="Black"></Path>
+                            </Viewbox>
+
+
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Fill" Value="#d81e06" TargetName="path"></Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+
+        </Style>
+
+        <Style x:Key="MaxBtn" TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="Transparent">
+
+            </Setter>
+            <Setter Property="RenderTransformOrigin" Value="0.5,0.5"></Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid x:Name="PART_root" Width="{TemplateBinding Width}"
+                              Height="{TemplateBinding Height}"
+                              Background="{TemplateBinding Background}">
+                            <Viewbox Stretch="Fill">
+
+                                <Grid>
+                                    <Path x:Name="path1" Data="M64 165.632 64 416C64 433.664 78.336 448 96 448S128 433.664 128 416L128 235.328l203.456 203.52c11.968 11.968 31.36 11.968 43.392 0 11.968-12.032 11.968-31.424 0-43.392L171.328 192 352 192C369.664 192 384 177.664 384 160S369.664 128 352 128L101.632 128C78.272 128 64 140.032 64 165.632z"
+                                      Fill="Black"></Path>
+                                    <Path x:Name="path2" Data="M860.352 128 609.984 128c-17.664 0-32 14.336-32 32S592.32 192 609.984 192l180.672 0-203.52 203.456c-11.968 11.968-11.968 31.36 0 43.392 12.032 11.968 31.424 11.968 43.392 0l203.456-203.52L833.984 416c0 17.664 14.336 32 32 32s32-14.336 32-32L897.984 165.632C897.984 140.032 883.776 128 860.352 128z"
+                                          Fill="Black"></Path>
+                                    <Path x:Name="path3" Data="M101.632 960 352 960C369.664 960 384 945.664 384 928S369.664 896 352 896L171.328 896l203.52-203.456c11.968-11.968 11.968-31.36 0-43.392-12.032-11.968-31.424-11.968-43.392 0L128 852.672 128 672C128 654.336 113.664 640 96 640S64 654.336 64 672l0 250.368C64 947.968 78.272 960 101.632 960z"
+                                          Fill="Black"></Path>
+                                    <Path x:Name="path4" Data="M897.984 922.368 897.984 672c0-17.664-14.336-32-32-32s-32 14.336-32 32l0 180.672-203.456-203.52c-11.968-11.968-31.36-11.968-43.392 0-11.968 12.032-11.968 31.424 0 43.392L790.656 896 609.984 896c-17.664 0-32 14.336-32 32s14.336 32 32 32l250.368 0C883.776 960 897.984 947.968 897.984 922.368z"
+                                          Fill="Black"></Path>
+                                </Grid>
+                            </Viewbox>
+
+
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Fill" Value="#06CFF1" TargetName="path1"></Setter>
+                                <Setter Property="Fill" Value="#06CFF1" TargetName="path2"></Setter>
+                                <Setter Property="Fill" Value="#06CFF1" TargetName="path3"></Setter>
+                                <Setter Property="Fill" Value="#06CFF1" TargetName="path4"></Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+
+        </Style>
+
+        <Style x:Key="MinBtn" TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="Transparent">
+
+            </Setter>
+            <Setter Property="RenderTransformOrigin" Value="0.5,0.5"></Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid x:Name="PART_root" Width="{TemplateBinding Width}"
+                              Height="{TemplateBinding Height}"
+                              Background="{TemplateBinding Background}">
+                            <Viewbox Stretch="Fill">
+                                <Path x:Name="path1" Data="M160 96h704a96 96 0 0 1 96 96v640a96 96 0 0 1-96 96h-288v-64h288a32 32 0 0 0 32-32V192a32 32 0 0 0-32-32H160a32 32 0 0 0-32 32v224H64V192a96 96 0 0 1 96-96z m49.728 593.728l210.048-209.408 92.512 92.288-210.144 209.536L448 928H64V544z"
+                                      Fill="Black"></Path>
+                            </Viewbox>
+
+
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Fill" Value="#06CFF1" TargetName="path1"></Setter>
+                               
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+
+        </Style>
+
+        <Style x:Key="SetBtn" TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="Transparent">
+
+            </Setter>
+            <Setter Property="RenderTransformOrigin" Value="0.5,0.5"></Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid x:Name="PART_root" Width="{TemplateBinding Width}"
+                              Height="{TemplateBinding Height}"
+                              Background="{TemplateBinding Background}">
+                            <Viewbox Stretch="Fill">
+
+                                <Grid>
+                                    <Path x:Name="path1" Data="M512 512m-90.112 0a90.112 90.112 0 1 0 180.224 0 90.112 90.112 0 1 0-180.224 0Z"
+                                      Fill="Black"></Path>
+                                    <Path x:Name="path2" Data="M512 0C229.376 0 0 229.376 0 512s229.376 512 512 512 512-229.376 512-512S794.624 0 512 0z m272.384 581.632c-6.144 25.6-16.384 50.176-29.696 71.68-3.072 5.12-7.168 9.216-12.288 11.264l-3.072-3.072c-21.504-21.504-56.32-21.504-77.824 0-21.504 21.504-21.504 56.32 0 77.824l3.072 3.072c-2.048 5.12-6.144 9.216-11.264 12.288-22.528 13.312-46.08 23.552-71.68 29.696-5.12 1.024-10.24 1.024-15.36 0v-4.096c0-30.72-24.576-55.296-55.296-55.296-30.72 0-55.296 24.576-55.296 55.296v5.12c-5.12 1.024-10.24 2.048-15.36 0-25.6-6.144-50.176-16.384-71.68-29.696-5.12-3.072-9.216-7.168-11.264-12.288l3.072-3.072c21.504-21.504 21.504-56.32 0-77.824-21.504-21.504-56.32-21.504-77.824 0l-3.072 3.072c-5.12-2.048-9.216-6.144-12.288-11.264-13.312-22.528-23.552-46.08-29.696-71.68-1.024-5.12-1.024-10.24 0-15.36h4.096c30.72 0 55.296-24.576 55.296-55.296 0-30.72-24.576-55.296-55.296-55.296h-5.12c-1.024-5.12-2.048-10.24 0-15.36 6.144-25.6 16.384-50.176 29.696-71.68 3.072-5.12 7.168-9.216 12.288-11.264l3.072 3.072c21.504 21.504 56.32 21.504 77.824 0 21.504-21.504 21.504-56.32 0-77.824l-3.072-3.072c2.048-5.12 6.144-9.216 11.264-12.288 22.528-13.312 46.08-23.552 71.68-29.696 5.12-1.024 10.24-1.024 15.36 0v5.12c0 30.72 24.576 55.296 55.296 55.296 30.72 0 55.296-24.576 55.296-55.296v-5.12c5.12-1.024 10.24-2.048 15.36 0 25.6 6.144 50.176 16.384 71.68 29.696 5.12 3.072 9.216 7.168 11.264 12.288l-3.072 3.072c-21.504 21.504-21.504 56.32 0 77.824 21.504 21.504 56.32 21.504 77.824 0l3.072-3.072c5.12 2.048 9.216 6.144 12.288 11.264 13.312 22.528 23.552 46.08 29.696 71.68 1.024 5.12 1.024 10.24 0 15.36h-4.096c-30.72 0-55.296 24.576-55.296 55.296s24.576 55.296 55.296 55.296h5.12c1.024 4.096 1.024 9.216 0 14.336z"
+                                      Fill="Black"></Path>
+                                    
+                                </Grid>
+                            </Viewbox>
+
+
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Fill" Value="#06CFF1" TargetName="path1"></Setter>
+                                <Setter Property="Fill" Value="#06CFF1" TargetName="path2"></Setter>
+                               
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+
+        </Style>
+
+    </Application.Resources>
+</Application>

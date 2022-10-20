@@ -1,0 +1,42 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <PackageIcon>muyu.png</PackageIcon>
+    <ApplicationIcon>imgs\muyun.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\my.mp3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="imgs\muyun.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="NAudio.Asio" Version="2.1.0" />
+    <PackageReference Include="NAudio.Core" Version="2.1.0" />
+    <PackageReference Include="NAudio.Midi" Version="2.1.0" />
+    <PackageReference Include="NAudio.Wasapi" Version="2.1.0" />
+    <PackageReference Include="NAudio.WinMM" Version="2.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="imgs\muyu.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="imgs\muyu.png" />
+    <Resource Include="Resources\my.mp3">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+</Project>
